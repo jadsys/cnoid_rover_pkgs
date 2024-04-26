@@ -1,0 +1,15 @@
+<launch>
+  <arg name="model" default="$(find cnoid_rover_description)/urdf/megarover/vmegarover.urdf.xacro"/>
+
+  <arg name="gui" default="true" />
+  <arg name="rviz_config" default="$(find cnoid_rover_description)/launch/config/megarover/display.rviz"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(arg model)'"/>
+  <param name="use_gui" value="$(arg gui)"/>
+
+<!--  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/> -->
+
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rviz_config)" required="true"/>
+
+</launch>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cnoid_rover_description</name>
+  <version>1.0.0</version>
+  <description>The MegaRover and MecanumRover description package</description>
+
+  <license>MIT</license>
+  <maintainer email="s-kumada@jadsys.co.jp">s-kumada</maintainer>
+  <author email="s-kumada@jadsys.co.jp">s-kumada</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <depend>urdf</depend>
+
+</package>

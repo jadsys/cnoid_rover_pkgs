@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cnoid_rover_pkgs</name>
+  <version>1.0.0</version>
+  <description>The cnoid_rover_pkgs package</description>
+
+  <maintainer email="s-kumada@jadsys.co.jp">s-kumada</maintainer>
+  <author email="s-kumada@jadsys.co.jp">s-kumada</author>
+  
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>cnoid_rover_bringup</exec_depend>
+  <exec_depend>cnoid_rover_control</exec_depend>
+  <exec_depend>cnoid_rover_description</exec_depend>
+  <exec_depend>cnoid_rover_slam</exec_depend>
+  
+  <export>
+    <metapackage/>
+  </export>
+  
+</package>

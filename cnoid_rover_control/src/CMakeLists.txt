@@ -1,0 +1,8 @@
+choreonoid_add_simple_controller(MegaRoverRosNaviController MegaRoverRosNaviController.cpp)
+target_link_libraries(MegaRoverRosNaviController ${catkin_LIBRARIES})
+
+choreonoid_add_simple_controller(MegaRoverRosNaviController_urdf MegaRoverRosNaviController_urdf.cpp)
+target_link_libraries(MegaRoverRosNaviController_urdf ${catkin_LIBRARIES})
+
+choreonoid_add_simple_controller(MegaRoverRosNaviController_new MegaRoverRosNaviController_new.cpp)
+target_link_libraries(MegaRoverRosNaviController_new ${catkin_LIBRARIES})

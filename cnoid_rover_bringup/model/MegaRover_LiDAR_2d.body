@@ -1,0 +1,91 @@
+#####################################################################
+#
+# MegaRover_LiDAR_2d.body
+#
+#  Created on: 2022/10/20
+#           Author: Seiya Kumada
+#
+#          Outline: メガローバーへ天板やLiDAR等実験用機器を搭載したChoreonoidモデル
+#
+#####################################################################
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: megarover
+
+links:
+  -
+    name: megarover
+    type: SubBody
+    uri: "MegaRover.body"
+  -
+    name: addnl_parts
+    parent: base_link
+    translation: [ 0.0, 0.0, 0.166 ] # メガローバーの車体の高さ(166mm)分オフセット
+    type: SubBody
+    uri: "MR_addnl_parts.body"
+  -
+    name: intel_nuc
+    parent: base_link
+    translation: [ 0.0, 0.0, 0.190742 ]
+    type: SubBody
+    uri: "Intel_nuc.body"
+  -
+    name: LiDAR_link
+    parent: lidar_stand
+    translation: [ 0.01, 0.0, 0.0406499 ]
+    jointType: fixed
+    mass: 0.830
+    inertia: [
+      5.7596e-04,        0.0,        0.0,
+             0.0, 1.1071e-03,        0.0,
+             0.0,        0.0, 5.7596e-04 ]
+    elements:
+      -
+        type: Visual
+        translation: [ -0.01, 0.0, -0.01 ]
+#        scale: [ 0.001, 0.001, 0.001 ] 
+        elements:
+          Resource:
+            uri: "resource/other/lidar/VLP-16.dae"
+      -
+        type: Collision
+        translation: [ -0.01, 0.0, 0.0188 ]
+        elements:
+          Shape:
+            translation: [ 0.0, 0.0, -0.0015 ]
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Cylinder, radius: 0.05165, height: 0.0727 }
+      -
+        type: Shape
+        translation: [ -0.01, 0, 0.03 ]
+        rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
+        geometry: { type: Box, size: [ 0.001, 0.001, 0.001 ] }
+      -
+        type: RangeSensor
+        name: LiDAR
+#        translation: [ 0.0135, 0.013, 0.016 ]
+        translation: [ -0.01, 0.0, 0.03 ]
+        rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
+        yawRange: 360.0
+        yawStep:  1.0
+        pitchRange: 0.0 # 30.0
+        pitchStep: 1.0
+        scanRate:  10.0 # 5.0
+        maxDistance: 100.0
+        minDistance: 0.1
+        on: true
+  -
+    name: Imu_link
+    parent: base_link
+    translation: [ 0.0, 0.0, 0.068 ]
+    mass: 0.001
+    elements:
+      -
+        type: AccelerationSensor
+        name: AccelSensor
+        id: 2
+      -
+        type: RateGyroSensor
+        name: GyroSensor
+        id: 3

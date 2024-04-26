@@ -1,0 +1,35 @@
+<launch>  
+  <!-- Arguments -->
+  <arg name="robot_prefix" default="megarover_01_sim"/>
+  <arg name="engine" default="aist" doc="model type [aist, ode, agx]"/>
+  <arg name="model" default="MegaRover" doc="model type [MegaRover]" />
+  <param name="use_sim_time" value="true"/>  
+  <arg name="urdf_model" default="$(find cnoid_rover_description)/urdf/megarover/vmegarover.urdf.xacro.urdf"/>
+
+  <!-- Choreonoid ROS -->
+  <node pkg="choreonoid_ros" name="choreonoid" type="choreonoid" args="$(find cnoid_rover_bringup)/project/$(arg model)_lictia1F_$(arg engine).cnoid " output="screen">
+    <param name="robot_prefix" value="$(arg robot_prefix)" />
+    <remap to="/$(arg robot_prefix)/scan" from="/$(arg robot_prefix)/LiDAR/scan" />
+    <rosparam file="$(find cnoid_rover_control)/param/cnoid_rover_control.yaml" command="load" />
+  </node>
+
+  <group ns="$(arg robot_prefix)">
+    <param name="robot_description" command="$(find xacro)/xacro '$(arg urdf_model)'"/>
+  
+    <!-- laser_filter -->
+    <arg name="laser_filter_file" default="laser_collision_zone_filter.yaml"/>
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" name="laser_filter">
+        <rosparam command="load" file="$(find cnoid_rover_bringup)/configuration_files/$(arg laser_filter_file)" />
+    </node>
+
+    <!-- ROS Control -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+      <param name="publish_frequency" type="double" value="50.0" />
+      <param name="tf_prefix" value="$(arg robot_prefix)" />
+      <remap from="joint_states" to="/$(arg robot_prefix)/joint_states"/>
+    </node>
+
+    <node pkg="tf" type="static_transform_publisher" name="static_transform_publisher"
+        args="-0.1 0 0.385 0 0 0 $(arg robot_prefix)/base_link $(arg robot_prefix)/LiDAR 100" />
+  </group>
+</launch>

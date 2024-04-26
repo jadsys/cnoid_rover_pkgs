@@ -1,0 +1,17 @@
+obstacle_range: 15.0
+raytrace_range: 16.0
+
+footprint: [[-0.3, 0.15], [-0.3, -0.15], [0.15, -0.15], [0.15, 0.15] ]
+
+#robot_radius: 0.17
+
+inflation_layer:
+  inflation_radius: 0.4
+  cost_scaling_factor: 3.0
+
+map_type: costmap
+
+obstacle_layer:
+  observation_sources: laser_scan_sensor
+  laser_scan_sensor: {sensor_frame: megarover_02_sim/LiDAR, data_type: LaserScan, topic: /megarover_02_sim/scan_filtered, marking: true, clearing: true, inf_is_valid: true}
+

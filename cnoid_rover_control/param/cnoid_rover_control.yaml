@@ -1,0 +1,57 @@
+#################################################################################################
+# File              : delivery_robot_node_mr_01_K.yaml
+# Last Update Date  : 2022/8/25
+# Author            : S.Kumada
+#################################################################################################
+# Change history 
+# DATE        Author     Description
+# 2022/08/25  S.Kuamda   Newly created.
+##################################################################################################
+
+## 機体情報
+# 機体名
+robot_prefix: "megarover_01_sim"
+
+# 車輪間距離定数(メガローバー)[m]
+tread_width: 0.284 
+
+# タイヤの半径の長さ[m]
+wheel_radius: 0.076 
+
+# 最大並進速度[m/s]
+max_vel: 0.8
+
+# 最低並進速度[m/s]
+min_vel: -0.8
+
+# 最大旋回速度[rad/s]
+max_ang_vel: 2.51
+
+# 最低旋回速度[rad/s]
+min_ang_vel: -2.51
+
+# 最大加速度[m/s^2]
+max_acc: 1.8 
+
+# 最低加速度[m/s^2]
+min_acc: -1.8
+
+# ホイールの関節名
+left_wheel_joint  : "left_wheel_link"
+right_wheel_joint : "right_wheel_link"
+
+## tf・トピック
+odom_frame_id:            "odom"
+child_frame_id:           "base_footprint"
+imu_frame_id:             "base_footprint"
+velocity_cmd_topic_name:  "rover_twist"
+imu_topic_name:           "imu"
+odom_topic_name:          "odom"
+
+## 使用するセンサ関連
+# IMUの使用可否
+use_imu: true
+
+# センサデバイス名(bodyで定義した名前)
+accelerometer_name: "AccelSensor"
+gyroscope_name: "GyroSensor"

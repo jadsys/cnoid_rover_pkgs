@@ -1,0 +1,558 @@
+#####################################################################
+#
+# MegaRover.body
+#
+#  Created on: 2020/10/21
+#  Update on: 2023/06/05
+#           Author: Seiya Kumada
+#
+#          Outline: ヴイストン株式会社が作成したメガローバーのChoreonoidモデル
+#
+#####################################################################
+
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: MegaRover
+rootLink: base_link
+
+links:
+  -
+    name: base_link
+    jointType: free
+    translation: [ 0.0, 0.0, 0.002 ]
+    centerOfMass: [ -0.061, 0.0, -0.002 ]
+    mass: 13.754
+    inertia: [ 
+      0.110655982,        0.0,         0.0,
+              0.0, 0.20062619,         0.0,
+              0.0,        0.0, 0.269504336 ]
+    elements:
+      -
+        type: Visual
+        elements:
+          Resource: { uri: "resource/megarover/dae/vmega_body.dae" }
+      -
+        type: Collision
+        elements:
+          -
+            name: Bottom_plate_0
+            type: Shape
+            translation: [ -0.068, 0, 0.03125 ]
+            geometry: { type: Box, size: [ 0.233, 0.223, 0.003 ] }
+          -
+            name: Bottom_plate_1
+            type: Shape
+            translation: [ -0.222, 0.0445, 0.03125 ]
+            rotation: [ 0, 0, 1, 15 ]
+            geometry: &BOTTOM_PLATE_1_GEO { type: Box, size: [ 0.106, 0.11, 0.003 ] }
+          -
+            name: Bottom_plate_2
+            type: Shape
+            translation: [ -0.222, -0.0445, 0.03125 ]
+            rotation: [ 0, 0, 1, -15 ]
+            geometry: *BOTTOM_PLATE_1_GEO
+          -
+            name: Bottom_plate_3
+            type: Shape
+            translation: [ -0.278, 0, 0.03125 ]
+            geometry: { type: Box, size: [ 0.03, 0.168, 0.003 ] }
+          -
+            name: Bottom_plate_4
+            type: Shape
+            translation: [ 0.063, 0.0798, 0.03125 ]
+            rotation: [ 0, 0, 1, -30 ]
+            geometry: &BOTTOM_PLATE_4_GEO { type: Box, size: [ 0.057, 0.04, 0.003 ] }
+          -
+            name: Bottom_plate_5
+            type: Shape
+            translation: [ 0.063, -0.0798, 0.03125 ]
+            rotation: [ 0, 0, 1, 30 ]
+            geometry: *BOTTOM_PLATE_4_GEO
+          -
+            name: Bottom_plate_6
+            type: Shape
+            translation: [ 0.075, 0, 0.03125 ]
+            geometry: { type: Box, size: [ 0.055, 0.165, 0.003 ] }
+          -
+            name: Center_Box
+            type: Shape
+            translation: [ -0.1085, 0.0, 0.096 ]
+            geometry: { type: Box, size: [ 0.165, 0.1747, 0.126 ] }
+          -
+            name: Pillar_0
+            type: Shape
+            translation: [ 0.035, 0.0995, 0.09625 ]
+            geometry: &PILLAR_GEO { type: Box, size: [ 0.02, 0.02, 0.127 ] }
+          -
+            name: Pillar_1
+            type: Shape
+            translation: [ 0.035, -0.0995, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Pillar_2
+            type: Shape
+            translation: [ -0.035, 0.0995, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Pillar_3
+            type: Shape
+            translation: [ -0.035, -0.0995, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Pillar_4
+            type: Shape
+            translation: [ -0.145, 0.0995, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Pillar_5
+            type: Shape
+            translation: [ -0.145, -0.0995, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Pillar_6
+            type: Shape
+            translation: [ -0.2025, 0.052, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Pillar_7
+            type: Shape
+            translation: [ -0.2025, -0.052, 0.09625 ]
+            geometry: *PILLAR_GEO
+          -
+            name: Top_plate_0
+            type: Shape
+            translation: [ -0.096, 0.0, 0.16225 ]
+            geometry: { type: Box, size: [ 0.164, 0.28, 0.005 ] }
+          -
+            name: Top_plate_1
+            type: Shape
+            translation: [ -0.178, 0.0585, 0.16225 ]
+            rotation: [ 0, 0, 1, 45 ]
+            geometry: &TOP_PLATE_1_GEO { type: Box, size: [ 0.115, 0.115, 0.005 ] }
+          -
+            name: Top_plate_1
+            type: Shape
+            translation: [ -0.178, -0.0585, 0.16225 ]
+            rotation: [ 0, 0, 1, -45 ]
+            geometry: *TOP_PLATE_1_GEO
+          -
+            name: Top_plate_2
+            type: Shape
+            translation: [ -0.23, 0.0, 0.16225 ]
+            geometry: { type: Box, size: [ 0.06, 0.117, 0.005 ] }
+          -
+            name: Top_plate_3
+            type: Shape
+            translation: [ -0.008, 0.0805, 0.16225 ]
+            rotation: [ 0, 0, 1, 63 ]
+            geometry: &TOP_PLATE_3 { type: Box, size: [ 0.1, 0.067, 0.005 ] }
+          -
+            name: Top_plate_4
+            type: Shape
+            translation: [ -0.008, -0.0805, 0.16225 ]
+            rotation: [ 0, 0, 1, -63 ]
+            geometry: *TOP_PLATE_3
+          -
+            name: Top_plate_5
+            type: Shape
+            translation: [ 0.0255, 0.063, 0.16225 ]
+            rotation: [ 0, 0, 1, 19 ]
+            geometry: &TOP_PLATE_5 { type: Box, size: [ 0.067, 0.076, 0.005 ] }
+          -
+            name: Top_plate_6
+            type: Shape
+            translation: [ 0.0255, -0.063, 0.16225 ]
+            rotation: [ 0, 0, 1, -19 ]
+            geometry: *TOP_PLATE_5
+          -
+            name: Top_plate_7
+            type: Shape
+            translation: [ 0.028, 0.0, 0.16225 ]
+            geometry: { type: Box, size: [ 0.084, 0.076, 0.005 ] }
+          -
+            name: Left_wheel_motor
+            type: Shape
+            translation: [ 0, 0.0787, 0.0755 ]
+            geometry: &MOTOR_COLL { type: Cylinder, radius: 0.022, height: 0.143 }
+          -
+            name: Right_wheel_motor
+            type: Shape
+            translation: [ 0, -0.0787, 0.0755 ]
+            geometry: *MOTOR_COLL
+          -
+            name: Caster_joint
+            type: Shape
+            translation: [ -0.235, 0, 0.049 ]
+            geometry: { type: Box, size: [ 0.045, 0.098, 0.032 ] }
+          -
+            name: Caster
+            type: Shape
+            # material: Mr_caster
+            translation: [ -0.255, 0, 0.02 ]
+            geometry: { type: Cylinder, radius: 0.0204, height: 0.017 }
+  # 右タイヤ
+  -
+    # name	リンク名
+    name: right_wheel_joint
+    # parent	親リンク。親リンクの名前（nameに記述した文字列）で指定する。ルートリンクの場合は使用しない
+    parent: base_link
+    # translation	本リンクローカルフレームの親リンクからの相対位置。ルートリンクの場合はモデル読み込み時のデフォルト位置として使われる
+    translation: [ 0.0, -0.14199, 0.074742 ]
+    # jointType	関節タイプ。 fixed (固定）、 free (非固定ルートリンク）、 revolute (回転関節）、 prismatic (直動関節）、 pseudoContinousTrack (簡易無限軌道）のどれかを指定
+    jointType: revolute
+    # jointAxis	関節軸。3次元ベクトルの3要素のリストとして関節軸の向きを指定する。値は単位ベクトルとする。
+    # 関節軸がリンクのローカル座標におけるX, Y, Zのいずれかに一致する場合は、対応する軸の文字(X, Y, Zのいずれか）によって指定することも可能。
+    jointAxis: [ 0, 1, 0 ]
+    # jointRange	関節可動範囲。最小値、最大値の2つの値をリストとして列挙する。値をunlimitedと記述することで、可動範囲の制限を無くすことも可能。
+    # 最小値と最大値の絶対値が同じでそれぞれ符号がマイナス、プラスとなる場合は、その絶対値をひとつだけ（スカラ値として）記述してもよい
+    jointRange: unlimited
+    material: Mr_tire
+    # elements	リンクの構成要素となる子ノードを記述
+    elements:
+      -
+        type: RigidBody
+        # centerOfMass	重心位置。リンクローカル座標で指定
+        centerOfMass: [ 0.0, 0.0, 0.0 ]
+        # mass	質量[kg]
+        mass: 0.823
+        # inertia 慣性モーメント。慣性テンソルの9要素をリストとして列挙。慣性テンソルの対称性より、上三角部分の6要素のみを列挙してもよい。
+        inertia: [
+          0.001250137,         0.0,         0.0,
+                  0.0, 0.001250137,         0.0,
+                  0.0,         0.0, 0.002376824 ]
+      -
+        type: Visual
+        elements:
+          Resource: { uri: "resource/megarover/dae/vmega_wheel.dae" }
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Cylinder, radius: 0.076, height: 0.03 }
+  
+  #左タイヤ
+  -
+    name: left_wheel_joint
+    parent: base_link
+    translation: [ 0, 0.142, 0.075 ]
+    joint_type: revolute
+    joint_id: 1
+    joint_axis: [ 0, 1, 0 ]
+    center_of_mass: [ 0, 0, 0 ]
+    mass: 0.823
+    inertia: [
+      0.001250137,         0.0,         0.0,
+              0.0, 0.001250137,         0.0,
+              0.0,         0.0, 0.002376824 ]
+    jointRange: unlimited
+    material: Mr_tire
+    elements:
+      -
+        type: Visual
+        elements:
+          Resource: { uri: "resource/megarover/dae/vmega_wheel.dae", rotation: [ 0, 0, 1, 180 ]}
+      -
+        type: Collision
+        elements:
+          Shape:
+            geometry: { type: Cylinder, radius: 0.076, height: 0.03 }
+
+    # name: left_wheel_joint
+    # parent: base_link
+    # translation: [ 0.0, 0.14199, 0.074742 ]
+    # jointType: revolute
+    # jointAxis: [ 0, 1, 0 ]
+    # jointRange: unlimited
+    # material: Mr_tire
+    # elements:
+    #   -
+    #     type: RigidBody
+    #     # centerOfMass	重心位置。リンクローカル座標で指定
+    #     centerOfMass: [ 0.0, 0.0, 0.0 ]
+    #     # mass	質量[kg]
+    #     mass: 0.823
+    #     inertia: [
+    #       0.001250137,         0.0,         0.0,
+    #               0.0, 0.001250137,         0.0,
+    #               0.0,         0.0, 0.002376824 ]
+    #   -
+    #     type: Visual
+    #     elements:
+    #       -
+    #         type: Resource
+    #         uri: "resource/megarover/dae/vmega_wheel.dae"
+    #         rotation: [ 0, 0, 1, 180 ]
+
+    #       # Resource: { uri: "resource/megarover/dae/vmega_wheel.dae",    rotation: [ 0, 0, 0, 180 ] }
+    #   -
+    #     type: Collision
+    #     elements:
+    #       Shape:
+    #         geometry: { type: Cylinder, radius: 0.076, height: 0.03 }
+
+  #バンパー
+  -
+    name: bumper_baseboard_front_joint
+    parent: base_link
+    jointType: fixed
+    # translation: [ 0.196, 0.0, 0.0365 ] -0.061, 0.0, -0.002
+    translation: [ 0.10135, 0.0, 0.0362 ]
+    rotation: [ 0, 0, 1, 90 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.195
+    inertia: [ 
+      0.00110104,        0.0,         0.0,
+              0.0, 0.00004819,         0.0,
+              0.0,        0.0, 0.00114415 ]
+    elements: &bumper_plate
+      -
+        type: Visual
+        elements:
+          Resource: { uri: "resource/megarover/option/bumper/dae/mecanum_bumper_plate.dae" }
+      -
+        type: Collision
+        elements:
+          -
+            name: Bumper_plate_1
+            type: Shape
+            translation: [ 0.0, -0.02075, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.1113, 0.0595, 0.02098 ] }
+          -
+            name: Bumper_plate_2
+            type: Shape
+            translation: [ 0.100842412, -0.020156742, -0.00325 ]
+            rotation: [ 0, 0, 1, 26 ]
+            geometry: { type: Box, size: [ 0.1079, 0.0149, 0.02098 ] }
+          -
+            name: Bumper_plate_3
+            type: Shape
+            translation: [ -0.100842412, -0.020156742, -0.00325 ]
+            rotation: [ 0, 0, 1, -26 ]
+            geometry: { type: Box, size: [ 0.1079, 0.0149, 0.02098 ] }
+          -
+            name: Bumper_plate_4
+            type: Shape
+            translation: [ 0.09965, 0.0015, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.09, 0.015, 0.02098 ] }
+          -
+            name: Bumper_plate_5
+            type: Shape
+            translation: [ -0.09965, 0.0015, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.09, 0.015, 0.02098 ] }
+          -
+            name: Bumper_plate_6
+            type: Shape
+            translation: [ 0.084, -0.0133, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.058, 0.018, 0.02098 ] }
+          -
+            name: Bumper_plate_7
+            type: Shape
+            translation: [ -0.084, -0.0133, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.058, 0.018, 0.02098 ] }
+          -
+            name: Bumper_plate_8
+            type: Shape
+            translation: [ 0.0681, -0.0253, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.025, 0.018, 0.02098 ] }
+          -
+            name: Bumper_plate_9
+            type: Shape
+            translation: [ -0.0681, -0.0253, -0.00325 ]
+            rotation: [ 0, 0, 1, 0 ]
+            geometry: { type: Box, size: [ 0.025, 0.018, 0.02098 ] }
+  -
+    name: bumper_front_0_joint
+    parent: bumper_baseboard_front_joint
+    jointType: fixed
+    translation: [ 0.10521, -0.024711, -0.00325 ]
+    rotation: [ 0, 0, 1, 26 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.016
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: &bumper
+      -
+        type: Visual
+        elements:
+          Resource: { uri: "resource/megarover/option/bumper/dae/mecanum_bumper.dae" }
+  -
+    name: bumper_front_1_joint
+    parent: bumper_baseboard_front_joint
+    jointType: fixed
+    translation: [ 0.0, -0.049, -0.00325 ]
+    rotation: [ 0, 0, 1, 0 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.016
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: *bumper
+  -
+    name: bumper_front_2_joint
+    parent: bumper_baseboard_front_joint
+    jointType: fixed
+    translation: [ -0.10521, -0.024711, -0.00325 ]
+    rotation: [ 0, 0, 1, -26 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.016
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: *bumper
+  -
+    name: bumper_baseboard_back_joint
+    parent: base_link
+    jointType: fixed
+    # translation: [ -0.196, 0.0, 0.0365 ] -0.061, 0.0, -0.002
+    translation: [ -0.289, 0.0, 0.0362 ]
+    rotation: [ 0, 0, 1, -90 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.195
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: *bumper_plate
+  -
+    name: bumper_back_0_joint
+    parent: bumper_baseboard_back_joint
+    jointType: fixed
+    translation: [ 0.10521, -0.024711, -0.00325 ]
+    rotation: [ 0, 0, 1, 26 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.016
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: *bumper
+  -
+    name: bumper_back_1_joint
+    parent: bumper_baseboard_back_joint
+    jointType: fixed
+    translation: [ 0.0, -0.049, -0.00325 ]
+    rotation: [ 0, 0, 1, 0 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.016
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: *bumper
+  -
+    name: bumper_back_2_joint
+    parent: bumper_baseboard_back_joint
+    jointType: fixed
+    translation: [ -0.10521, -0.024711, -0.00325 ]
+    rotation: [ 0, 0, 1, -26 ] # rpyと傾き[deg]
+    centerOfMass: [ 0.0, 0.0, 0.0 ]
+    mass: 0.016
+    inertia: [ 
+       0.00000079,        0.0,         0.0,
+              0.0, 0.00001501,         0.0,
+              0.0,        0.0, 0.00001463  ]
+    elements: *bumper
+
+  
+  # TB3側定義位置確認用
+  # -
+  #   name: Waffle_pi_base
+  #   parent: base_link
+  #   translation: [ 0.0, 0.0, 0.0143 ]
+  # -
+  #   name: Middle_plate
+  #   parent: Waffle_pi_base
+  #   translation: [ 0.0, 0.0, 0.0375 ]
+  # -
+  #   name: Top_plate
+  #   parent: Middle_plate
+  #   translation: [ 0.0, 0.0, 0.045 ]
+  # -
+  #   name: addnl_parts
+  #   parent: Top_plate
+  #   translation: [ 0.0, 0.0, 0.1 ]
+  #   type: SubBody
+  #   uri: "Tb3_addnl_parts.body"
+
+  # -
+  #   name: front_lrf_link
+  #   parent: base_link
+  #   translation: [ 0.099, 0.0, 0.1015 ]
+  #   jointType: fixed
+  #   elements: &LRF
+  #     - &LRF_RIGID
+  #       type: RigidBody
+  #       centerOfMass: [ 0.0, 0.0, 0.0 ]
+  #       mass: 0.218
+  #       inertia: [ 
+  #         9.08333E-05,         0.0,         0.0,
+  #                 0.0, 1.34433E-04,         0.0,
+  #                 0.0,         0.0, 1.34433E-04 ]
+  #     - &LRF_VISUAL
+  #       type: Visual
+  #       elements:
+  #         Resource: { uri: "resource/megarover/dae/lrf.dae" }
+  #     - &LRF_COLL
+  #       type: Collision
+  #       elements:
+  #         -
+  #           name: Lrf_plate
+  #           type: Shape
+  #           translation: [ -0.0105, 0.0, 0.057 ]
+  #           geometry: { type: Box, size: [ 0.089, 0.126, 0.003 ] }
+  #         -
+  #           name: Lrf_box
+  #           type: Shape
+  #           translation: [ 0, 0, 0.0345 ]
+  #           geometry: { type: Box, size: [ 0.05, 0.05, 0.04 ] }
+  #         -
+  #           name: Lrf_cylinder
+  #           type: Shape
+  #           translation: [ 0, 0, 0.0 ]
+  #           rotation: [ 1, 0, 0, 90 ]
+  #           geometry: { type: Cylinder, radius: 0.0213, height: 0.029 }
+  #     -
+  #       type: RangeSensor
+  #       name: front_lrf
+  #       rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
+  #       yawRange: 180.0
+  #       yawStep: 1.0
+  #       pitchRange: 2.0
+  #       pitchStep: 0.4
+  #       scanRate: 5
+  #       minDistance: 0.06
+  #       maxDistance: 4.0
+  #       on: true
+  # -
+  #   name: rear_lrf_link
+  #   parent: base_link
+  #   translation: [ -0.289, 0.0, 0.1015 ]
+  #   rotation: [ 0, 0, 1, 180 ]
+  #   jointType: fixed
+  #   elements:
+  #     - *LRF_RIGID
+  #     - *LRF_VISUAL
+  #     - *LRF_COLL
+  #     -
+  #       type: RangeSensor
+  #       name: rear_lrf
+  #       rotation: [ [ 1, 0, 0, 90 ], [ 0, 1, 0, -90 ] ]
+  #       yawRange: 180.0
+  #       yawStep: 1.0
+  #       pitchRange: 2.0
+  #       pitchStep: 0.4
+  #       scanRate: 5
+  #       minDistance: 0.06
+  #       maxDistance: 4.0
+  #       on: true

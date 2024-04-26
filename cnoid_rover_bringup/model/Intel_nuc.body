@@ -1,0 +1,72 @@
+#####################################################################
+#
+# Intel_nuc.body
+# 
+#  Created on: 2021/11/25
+#  Last updated: 2021/11/25
+#           Author: Tsuyoshi Anazawa
+#
+#          Outline: Intel NUC model.
+#
+#####################################################################
+format: ChoreonoidBody
+formatVersion: 1.0
+angleUnit: degree
+name: Intel_nuc
+rootLink: Intel_nuc
+
+links:
+  -
+    name: Intel_nuc
+    translation: [ 0.0, 0.0, 0.025 ]
+    jointType: fixed
+    mass: 0.561
+    inertia: [
+      7.5683575e-04, 0.0, 0.0,
+      0.0, 7.03307e-04, 0.0,
+      0.0, 0.0, 1.22639275e-03 ]
+    elements:
+      Shape:
+        geometry: { type: Box, size: [ 0.112, 0.117, 0.05 ] }
+        appearance:
+          material:
+            diffuseColor: [ 0.2, 0.2, 0.2 ]
+            specularColor: [ 0.4, 0.4, 0.4 ]
+  -
+    name: Leg_FR
+    parent: Intel_nuc
+    translation: [ 0.046, -0.0485, -0.0255 ]
+    jointType: fixed
+    elements: &Leg
+      RigidBody:
+        mass: 0.001
+        inertia: [
+          6.3333e-09, 0.0, 0.0,
+          0.0, 6.3333e-09, 0.0,
+          0.0, 0.0, 1.2500E-08 ]
+        elements:
+          Shape:
+            rotation: [ 1, 0, 0, 90 ]
+            geometry: { type: Cylinder, radius: 0.005, height: 0.001 }
+            appearance:
+              material:
+                diffuseColor: [ 0.4, 0.4, 0.4 ]
+                specularColor: [ 0.5, 0.5, 0.5 ]
+  -
+    name: Leg_FL
+    parent: Intel_nuc
+    translation: [ 0.046, 0.0485, -0.0255 ]
+    jointType: fixed
+    elements: *Leg
+  -
+    name: Leg_BL
+    parent: Intel_nuc
+    translation: [ -0.046, 0.0485, -0.0255 ]
+    jointType: fixed
+    elements: *Leg
+  -
+    name: Leg_BR
+    parent: Intel_nuc
+    translation: [ -0.046, -0.0485, -0.0255 ]
+    jointType: fixed
+    elements: *Leg

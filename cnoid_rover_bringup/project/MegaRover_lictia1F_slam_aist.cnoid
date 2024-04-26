@@ -1,0 +1,1037 @@
+items:
+  id: 0
+  name: RootItem
+  plugin: Base
+  class: RootItem
+  is_builtin_item: true
+  children:
+  - id: 1
+    name: World
+    plugin: Body
+    class: WorldItem
+    data:
+      collision_detection: false
+      collision_detector: AISTCollisionDetector
+      default_material_table_file: ${SHARE}/default/materials.yaml
+    children:
+    - id: 2
+      name: megarover_01_sim
+      plugin: Body
+      class: BodyItem
+      is_checked: true
+      data:
+        file: ${SHARE}/cnoid_rover_bringup/model/MegaRover_LiDAR_2d.body
+        format: CHOREONOID-BODY
+        rootPosition: [0, 0, 0]
+        rootAttitude: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+        jointDisplacements: [0, 0]
+        jointPositions: [0, 0]
+        initialRootPosition: [0, 0, 0.002]
+        initialRootAttitude: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+        initialJointPositions: [0, 0]
+        fix_root: false
+        collisionDetection: true
+        selfCollisionDetection: false
+        lock_location: true
+        scene_sensitive: true
+        zmp: [0, 0, 0]
+      children:
+      - id: 3
+        name: MegaRoverRosNaviController
+        plugin: Body
+        class: SimpleControllerItem
+        data:
+          isNoDelayMode: false
+          controllerOptions: ''
+          controller: MegaRoverRosNaviController
+          base_directory: Controller directory
+          reloading: false
+          export_symbols: false
+      - id: 4
+        name: BodyROS
+        plugin: ROS
+        class: BodyROSItem
+        data:
+          body_ros_version: 0
+          joint_state_update_rate: 100
+      - id: 5
+        name: BodyTrackingCamera
+        plugin: Body
+        class: BodySyncCameraItem
+        is_checked: true
+        data:
+          target_link: ''
+          parallel_tracking: true
+          interactive_viewpoint_change: true
+          camera_type: Perspective
+          near_clip_distance: 0.04
+          far_clip_distance: 200
+          field_of_view: 0.785398
+          translation: [4.55808, -13.4665, 12.7399]
+          rotation: [0.999887, -0.00394081, -0.0145097, 30.3931]
+          local_translation: [13.5093, 4.55805, 12.6946]
+          local_rotation: [0.256882, 0.254889, 0.932225, 93.5666]
+    - id: 6
+      name: LICTiA1F
+      plugin: Body
+      class: BodyItem
+      is_checked: true
+      data:
+        file: ${SHARE}/LICTiA/model/LICTiA1F.body
+        format: CHOREONOID-BODY
+        rootPosition: [8.997, -1.691, -0.05]
+        rootAttitude: [2.22044605e-16, -1, 0, 1, 2.22044605e-16, 0, 0, 0, 1]
+        jointPositions: []
+        initialRootPosition: [8.997, -1.691, -0.05]
+        initialRootAttitude: [2.22044605e-16, -1, 0, 1, 2.22044605e-16, 0, 0, 0, 1]
+        fix_root: true
+        collisionDetection: true
+        selfCollisionDetection: false
+        lock_location: false
+        scene_sensitive: true
+        zmp: [0, 0, 0]
+    - id: 7
+      name: Obstacle
+      plugin: Base
+      class: FolderItem
+      children:
+      - id: 8
+        name: FreeSpace
+        plugin: Base
+        class: FolderItem
+        children:
+        - id: 9
+          name: DigitalSignage_47v
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/DigitalSignage_47v.body
+            format: CHOREONOID-BODY
+            rootPosition: [0.6695, 2.2475, 0.952]
+            rootAttitude: [2.22044605e-16, 1, 0, -1, 2.22044605e-16, 0, 0, 0, 1]
+            jointPositions: []
+            initialRootPosition: [0.6695, 2.2475, 0.952]
+            initialRootAttitude: [2.22044605e-16, 1, 0, -1, 2.22044605e-16, 0, 0,
+              0, 1]
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp: [0, 0, 0]
+        - id: 10
+          name: Table-65x65_0
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Table-65x65.body
+            format: CHOREONOID-BODY
+            rootPosition: [-5.275, -5.675, 0.435]
+            rootAttitude: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+            jointPositions: []
+            initialRootPosition: [-5.275, -5.675, 0.435]
+            initialRootAttitude: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp: [0, 0, 0]
+        - id: 11
+          name: Table-65x65_1
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Table-65x65.body
+            format: CHOREONOID-BODY
+            rootPosition: [-5.275, -6.875, 0.435]
+            rootAttitude: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+            jointPositions: []
+            initialRootPosition: [-5.275, -6.875, 0.435]
+            initialRootAttitude: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp: [0, 0, 0]
+        - id: 12
+          name: Low_chair_0
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Low_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: [-4.575, -5.682, 0.255]
+            rootAttitude: [-1, -1.2246468e-16, 0, 1.2246468e-16, -1, 0, 0, 0, 1]
+            jointPositions: []
+            initialRootPosition: [-4.575, -5.682, 0.255]
+            initialRootAttitude: [-1, -1.2246468e-16, 0, 1.2246468e-16, -1, 0, 0,
+              0, 1]
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp: [0, 0, 0]
+        - id: 13
+          name: Low_chair_1
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Low_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: [-4.575, -6.875, 0.255]
+            rootAttitude: [-1, -1.2246468e-16, 0, 1.2246468e-16, -1, 0, 0, 0, 1]
+            jointPositions: []
+            initialRootPosition: [-4.575, -6.875, 0.255]
+            initialRootAttitude: [-1, -1.2246468e-16, 0, 1.2246468e-16, -1, 0, 0,
+              0, 1]
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp: [0, 0, 0]
+        - id: 1
+          name: Table-120x120-0
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Table-120x120.body
+            format: CHOREONOID-BODY
+            rootPosition: &id001
+            - 1.595492203318388
+            - -6.640684401332441
+            - 0.72
+            rootAttitude:
+            - 0.9635413890833706
+            - 0.26755932337201127
+            - 0.0
+            - -0.26755932337201127
+            - 0.9635413890833706
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id001
+            initialAttitude:
+            - 0.9635413890833706
+            - 0.26755932337201127
+            - 0.0
+            - -0.26755932337201127
+            - 0.9635413890833706
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 2
+          name: Table-120x120-1
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Table-120x120.body
+            format: CHOREONOID-BODY
+            rootPosition: &id002
+            - 4.001291953766017
+            - -4.7791375670990375
+            - 0.72
+            rootAttitude:
+            - 0.7750170200370826
+            - 0.6319403600442373
+            - 0.0
+            - -0.6319403600442373
+            - 0.7750170200370826
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id002
+            initialAttitude:
+            - 0.7750170200370826
+            - 0.6319403600442373
+            - 0.0
+            - -0.6319403600442373
+            - 0.7750170200370826
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 3
+          name: Table-120x120-2
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Table-120x120.body
+            format: CHOREONOID-BODY
+            rootPosition: &id003
+            - 6.218638440168796
+            - -4.778186264760979
+            - 0.72
+            rootAttitude:
+            - 0.9787177032230694
+            - 0.20521125066077603
+            - 0.0
+            - -0.20521125066077603
+            - 0.9787177032230694
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id003
+            initialAttitude:
+            - 0.9787177032230694
+            - 0.20521125066077603
+            - 0.0
+            - -0.20521125066077603
+            - 0.9787177032230694
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 4
+          name: Table-120x120-3
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Table-120x120.body
+            format: CHOREONOID-BODY
+            rootPosition: &id004
+            - 6.496580834019418
+            - -6.955866372447199
+            - 0.72
+            rootAttitude:
+            - 0.9503734312294602
+            - 0.31111146107648063
+            - 0.0
+            - -0.31111146107648063
+            - 0.9503734312294602
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id004
+            initialAttitude:
+            - 0.9503734312294602
+            - 0.31111146107648063
+            - 0.0
+            - -0.31111146107648063
+            - 0.9503734312294602
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 5
+          name: Office_chair-0
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id005
+            - 1.4285714285714288
+            - -6.73469387755102
+            - 0.45
+            rootAttitude:
+            - -0.13868385860874555
+            - 0.9903367040362532
+            - 0.0
+            - -0.9903367040362532
+            - -0.13868385860874555
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id005
+            initialAttitude:
+            - -0.13868385860874555
+            - 0.9903367040362532
+            - 0.0
+            - -0.9903367040362532
+            - -0.13868385860874555
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 6
+          name: Office_chair-1
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id006
+            - 3.0612244897959187
+            - -6.73469387755102
+            - 0.45
+            rootAttitude:
+            - -0.03582406378623704
+            - 0.9993581122169567
+            - 0.0
+            - -0.9993581122169567
+            - -0.03582406378623704
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id006
+            initialAttitude:
+            - -0.03582406378623704
+            - 0.9993581122169567
+            - 0.0
+            - -0.9993581122169567
+            - -0.03582406378623704
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 7
+          name: Office_chair-2
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id007
+            - 3.4693877551020407
+            - -4.6938775510204085
+            - 0.45
+            rootAttitude:
+            - -0.05433328334624954
+            - 0.9985228561834807
+            - 0.0
+            - -0.9985228561834807
+            - -0.05433328334624954
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id007
+            initialAttitude:
+            - -0.05433328334624954
+            - 0.9985228561834807
+            - 0.0
+            - -0.9985228561834807
+            - -0.05433328334624954
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 8
+          name: Office_chair-3
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id008
+            - 4.6938775510204085
+            - -5.7142857142857135
+            - 0.45
+            rootAttitude:
+            - -0.0060086955204237125
+            - 0.9999819476261272
+            - 0.0
+            - -0.9999819476261272
+            - -0.0060086955204237125
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id008
+            initialAttitude:
+            - -0.0060086955204237125
+            - 0.9999819476261272
+            - 0.0
+            - -0.9999819476261272
+            - -0.0060086955204237125
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 9
+          name: Office_chair-4
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id009
+            - 4.6938775510204085
+            - -5.1020408163265305
+            - 0.45
+            rootAttitude:
+            - 1.0
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id009
+            initialAttitude:
+            - 1.0
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 10
+          name: Office_chair-5
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id010
+            - 5.306122448979592
+            - -5.5102040816326525
+            - 0.45
+            rootAttitude:
+            - -0.0015666017044184688
+            - 0.999998772878797
+            - 0.0
+            - -0.999998772878797
+            - -0.0015666017044184688
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id010
+            initialAttitude:
+            - -0.0015666017044184688
+            - 0.999998772878797
+            - 0.0
+            - -0.999998772878797
+            - -0.0015666017044184688
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 11
+          name: Office_chair-6
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id011
+            - 5.510204081632654
+            - -5.1020408163265305
+            - 0.45
+            rootAttitude:
+            - -0.0015666017044184688
+            - 0.999998772878797
+            - 0.0
+            - -0.999998772878797
+            - -0.0015666017044184688
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id011
+            initialAttitude:
+            - -0.0015666017044184688
+            - 0.999998772878797
+            - 0.0
+            - -0.999998772878797
+            - -0.0015666017044184688
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+        - id: 12
+          name: Office_chair-7
+          plugin: Body
+          class: BodyItem
+          is_checked: true
+          data:
+            file: ${SHARE}/LICTiA/model/Office_chair.body
+            format: CHOREONOID-BODY
+            rootPosition: &id012
+            - 5.918367346938776
+            - -7.142857142857142
+            - 0.45
+            rootAttitude:
+            - -0.0022571406253522053
+            - 0.9999974526548542
+            - 0.0
+            - -0.9999974526548542
+            - -0.0022571406253522053
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            initialPosition: *id012
+            initialAttitude:
+            - -0.0022571406253522053
+            - 0.9999974526548542
+            - 0.0
+            - -0.9999974526548542
+            - -0.0022571406253522053
+            - 0.0
+            - 0.0
+            - 0.0
+            - 1.0
+            fix_root: true
+            collisionDetection: true
+            selfCollisionDetection: false
+            lock_location: false
+            scene_sensitive: true
+            zmp:
+            - 0
+            - 0
+            - 0
+      - id: 22
+        name: pepper
+        plugin: Body
+        class: BodyItem
+        is_checked: true
+        data:
+          file: ${SHARE}/LICTiA/model/pepper.body
+          format: CHOREONOID-BODY
+          rootPosition: [2.126, -3.213, 0.605]
+          rootAttitude: [0.999998477, 0, -0.00174532837, 0, 1, 0, 0.00174532837, 0,
+            0.999998477]
+          jointPositions: []
+          initialRootPosition: [2.126, -3.213, 0.605]
+          initialRootAttitude: [0.999998477, 0, -0.00174532837, 0, 1, 0, 0.00174532837,
+            0, 0.999998477]
+          fix_root: true
+          collisionDetection: true
+          selfCollisionDetection: false
+          lock_location: false
+          scene_sensitive: true
+          zmp: [0, 0, 0]
+    - id: 23
+      name: AISTSimulator
+      plugin: Body
+      class: AISTSimulatorItem
+      data:
+        time_step: 0.001
+        realtime_sync_mode: compensatory
+        recording: full
+        time_range_mode: unlimited
+        time_length: 180
+        is_active_control_time_range_mode: false
+        output_all_link_positions: false
+        output_device_states: true
+        use_controller_threads: true
+        record_collision_data: false
+        controller_options: velocity
+        block_scene_view_edit_mode: false
+        dynamicsMode: Forward dynamics
+        integrationMode: runge-kutta
+        gravity: [0, 0, -9.80665]
+        min_friction_coefficient: 0
+        max_friction_coefficient: 100
+        cullingThresh: 0.01
+        contactCullingDepth: 0.05
+        errorCriterion: 0.001
+        maxNumIterations: 1000
+        contactCorrectionDepth: 0.0001
+        contactCorrectionVelocityRatio: 30
+        kinematicWalking: false
+        2Dmode: false
+        oldAccelSensorMode: false
+      children:
+      - id: 24
+        name: GLVisionSimulator
+        plugin: Body
+        class: GLVisionSimulatorItem
+        data:
+          enabled: true
+          max_frame_rate: 1000
+          max_latency: 1
+          record_vision_data: false
+          thread_mode: Sensor
+          best_effort: false
+          all_scene_objects: false
+          range_sensor_precision_ratio: 2
+          depth_error: 0
+          enable_head_light: true
+          enable_additional_lights: true
+          antialiasing: false
+    - id: 25
+      name: WorldROS
+      plugin: ROS
+      class: WorldROSItem
+      is_checked: true
+      data:
+        max_clock_publishing_rate: 100
+views:
+- id: 0
+  plugin: Base
+  class: ItemPropertyView
+  mounted: true
+- id: 1
+  plugin: Base
+  class: ItemTreeView
+  mounted: true
+  state:
+    expanded: [1, 2, 7, 8, 10, 11, 15, 16]
+- id: 2
+  plugin: Base
+  class: LocationView
+  state:
+    show_rpy: true
+    unique_rpy: false
+    show_quaternion: false
+    show_rotation_matrix: false
+    coordinate: parent
+- id: 3
+  plugin: Base
+  class: MessageView
+  mounted: true
+- id: 4
+  plugin: Base
+  class: SceneView
+  mounted: true
+  state:
+    editMode: false
+    viewpointOperationMode: thirdPerson
+    visible_polygon_elements: [face]
+    highlighting: false
+    collisionLines: false
+    cameras:
+    - camera: [System, Perspective]
+      eye: [-0.0156806, -2.21228, 27.4714]
+      direction: [0.0529598, -0.00922517, -0.998554]
+      up: [0.983741, -0.17136, 0.0537573]
+    - camera: [System, Orthographic]
+      orthoHeight: 20
+    - camera: BodyTrackingCamera
+      isCurrent: true
+    lighting_mode: normal
+    culling_mode: enabled
+    shading_mode: smooth
+    world_light: true
+    world_light_intensity: 0.5
+    ambient_light: true
+    ambient_light_intensity: 0.25
+    head_light: true
+    head_light_intensity: 0.75
+    world_light_shadow: true
+    shadow_lights:
+    - {index: 0, enabled: false}
+    - {index: 1, enabled: false}
+    background_color: [0.1, 0.1, 0.3]
+    line_width: 1
+    point_size: 1
+    field_of_view: 35
+    clip_distances: [0.04, 200]
+    floorGrid: false
+    floorGridSpan: 10
+    floorGridInterval: 0.5
+    xzGrid: false
+    xzGridSpan: 10
+    xzGridInterval: 0.5
+    yzGrid: false
+    yzGridSpan: 10
+    yzGridInterval: 0.5
+    xy_grid_color: [0.9, 0.9, 0.9]
+    xz_grid_color: [0.9, 0.9, 0.9]
+    yz_grid_color: [0.9, 0.9, 0.9]
+- id: 5
+  plugin: Body
+  class: BodyLinkView
+  state:
+    showRotationMatrix: false
+- id: 6
+  plugin: Body
+  class: JointDisplacementView
+  state:
+    show_joint_ids: false
+    show_joint_names: true
+    overlap_joint_names: false
+    show_sliders: true
+    show_dials: false
+    show_phases: true
+    limit_ranges: false
+    show_selected_joints: false
+- id: 7
+  plugin: Body
+  class: LinkDeviceListView
+  state:
+    element_type: all
+    listing_mode: list
+- id: 8
+  plugin: Body
+  class: LinkPositionView
+  state:
+    coordinate_mode: world
+    preferred_coordinate_mode: base
+    show_rpy: true
+    unique_rpy: false
+    show_quaternion: false
+    show_rotation_matrix: false
+    target_link_type: ik_link
+- id: 9
+  plugin: Body
+  class: LinkPropertyView
+- id: 10
+  plugin: Python
+  class: PythonConsoleView
+  mounted: true
+toolbars:
+  TimeBar:
+    current_time: 0
+    min_time: 0
+    max_time: 31153.5
+    frame_rate: 1000
+    playback_frame_rate: 60
+    idle_loop_driven_mode: false
+    playback_speed_ratio: 1
+    sync_to_ongoing_updates: true
+    auto_expansion: true
+  LeggedBodyBar:
+    stanceWidth: 0.15
+  KinematicsBar:
+    forward_kinematics: true
+    inverse_kinematics: true
+    preset_kinematics: true
+    enablePositionDragger: true
+    penetrationBlock: false
+    collisionLinkHighlight: false
+    snapDistance: 0.025
+    penetrationBlockDepth: 0.0005
+    lazyCollisionDetectionMode: true
+Body:
+  BodySelectionManager:
+    current_body_item: 16
+    current_link: Board_top
+  KinematicFaultChecker:
+    checkJointPositions: true
+    angleMargin: 0
+    translationMargin: 0
+    checkJointVelocities: true
+    velocityLimitRatio: 100
+    targetJoints: all
+    checkSelfCollisions: true
+    onlyTimeBarRange: false
+  OperableSceneBody:
+    scene_bodies:
+    - body_item: 2
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 6
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 9
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 10
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 11
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 12
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 13
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 14
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 15
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 16
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 17
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 18
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 19
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 20
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 21
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+    - body_item: 22
+      show_cm: false
+      show_cm_projection: false
+      show_zmp: false
+  SplineFilterDialog:
+    isInputFrameRateSpecified: false
+    inputFrameRate: 200
+    isOutputFrameRateSpecified: false
+    outputFrameRate: 200
+viewAreas:
+- type: embedded
+  tabs: true
+  contents:
+    type: splitter
+    orientation: horizontal
+    sizes: [318, 1554]
+    children:
+    - type: splitter
+      orientation: vertical
+      sizes: [472, 471]
+      children:
+      - type: pane
+        views: [1]
+      - type: pane
+        views: [0]
+    - type: splitter
+      orientation: vertical
+      sizes: [842, 101]
+      children:
+      - type: pane
+        views: [4]
+      - type: pane
+        views: [3, 10]
+        current: 3
+layoutOfToolBars:
+  rows:
+  - - {name: FileBar, x: 0, priority: 0}
+    - {name: ScriptBar, x: 48, priority: 0}
+    - {name: TimeBar, x: 96, priority: 0}
+    - {name: SceneBar, x: 1077, priority: 0}
+    - {name: GraphBar, x: 1608, priority: 0}
+  - - {name: BodyBar, x: 0, priority: 0}
+    - {name: KinematicsBar, x: 265, priority: 0}
+    - {name: SimulationBar, x: 521, priority: 1}

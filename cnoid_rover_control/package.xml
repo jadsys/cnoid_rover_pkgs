@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cnoid_rover_control</name>
+  <version>1.0.0</version>
+  <description>The megarover and mecanumrover control package</description>
+
+  <license>MIT</license>
+  <maintainer email="s-kumada@jadsys.co.jp">s-kumada</maintainer>  
+  <author email="s-kumada@jadsys.co.jp">s-kumada</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>choreonoid</depend>
+  <depend>choreonoid_ros</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf</depend>
+  <export>
+    <build_type>cmake</build_type>
+  </export>
+</package>

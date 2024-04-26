@@ -1,0 +1,12 @@
+recovery_behavior_enabled: true
+recovery_behaviors:
+  - name: relocalization_recovery
+    type: relocalization_recovery/RelocalizationRecovery
+  - name: rotate_recovery_relocalization
+    type: rotate_recovery/RotateRecovery
+  - name: conservative_reset
+    type: clear_costmap_recovery/ClearCostmapRecovery
+  - name: rotate_recovery
+    type: rotate_recovery/RotateRecovery
+  - name: aggressive_reset
+    type: clear_costmap_recovery/ClearCostmapRecovery
